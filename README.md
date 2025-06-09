@@ -4,6 +4,7 @@ ASLConnect is a full-stack web application designed for real-time American Sign 
 
 ## Live Website
 [ASLConnect](https://aslconnect-42512.web.app/)
+
 Link: https://aslconnect-42512.web.app/
 
 ## Website Preview
