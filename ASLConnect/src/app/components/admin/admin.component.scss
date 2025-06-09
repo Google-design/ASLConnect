@@ -1,0 +1,190 @@
+.container {
+  background-color: pink;
+}
+
+.custom-tab-group {
+  padding-top: 64px;
+  background-color: #d8efff;
+  padding: 10px;
+
+  mat-tab-label {
+    .example-tab-icon {
+      font-size: 24px;
+      color: #0e5398;
+    }
+
+    .tab-label {
+      font-size: 16px;
+      font-weight: 500;
+      color: #1976d2;
+    }
+
+    &:hover {
+      color: #42a5f5;
+    }
+  }
+
+  .tab-content {
+    padding: 15px;
+    overflow: auto;
+    background-color: #ffffff;
+    border-radius: 2px;
+
+    h3 {
+      color: #1976d2;
+    }
+  }
+
+  .no-notifications {
+    padding: 20px;
+    text-align: center;
+    color: #757575;
+    font-size: 18px;
+    font-style: italic;
+  }
+}
+
+/* Modules Tab Styling */
+.module-card {
+  background-color: #fff; /* Matches the card background in the image */
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 800px; /* Align to match the content width in the image */
+  margin: 0 auto; /* Center align the card */
+}
+
+.module-card-content {
+  display: flex;
+  flex-direction: column; /* Ensure stacked layout */
+  gap: 15px; /* Space between elements */
+
+  h1, h3 {
+    font-size: 24px;
+    color: #333; /* Darker heading color */
+    font-weight: 400;
+    text-align: center; /* Center align the title */
+  }
+
+  h4 {
+    font-size: 20px;
+    color: #444; /* Slightly lighter for subheadings */
+    margin-top: 15px; /* Space between heading and content */
+  }
+
+  p {
+    font-size: 16px;
+    color: #555; /* Neutral text color */
+    line-height: 1.6; /* Improve readability */
+    text-align: justify; /* Justify text for a clean look */
+  }
+
+  a {
+    color: #1976d2; /* Blue color for links */
+    text-decoration: none;
+    font-size: 14px;
+
+    &:hover {
+      text-decoration: underline;
+      color: #0d47a1; /* Darker shade on hover */
+    }
+  }
+}
+
+.no-notifications {
+  text-align: center;
+  font-size: 18px;
+  font-style: italic;
+  color: #999;
+  margin-top: 20px;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  iframe {
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    border-radius: 8px; /* Rounded corners for the video */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow around the video */
+    max-width: 100%; /* Responsive */
+    height: 75%;
+  }
+}
+
+img{
+  height: 75%;
+}
+
+/* Additional Styles */
+.custom-expansion-panel {
+  mat-expansion-panel-header {
+    background-color: #bbdefb;
+    border-radius: 1px;
+    padding: 10px;
+  }
+
+  .notification-details {
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+
+    p {
+      font-size: 14px;
+      color: #424242;
+    }
+
+    strong {
+      font-weight: 500;
+      color: #1976d2;
+    }
+  }
+}
+
+.logout-confirm-box {
+  padding: 15px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-align: center;
+
+  p {
+    font-size: 16px;
+    color: #333;
+  }
+
+  button {
+    margin: 5px;
+  }
+
+  button[mat-raised-button] {
+    margin-left: 10px;
+  }
+}
+
+.add-module-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3f51b5; /* You can change the color as needed */
+  color: white;
+}
+
+h1{
+  color: #1976d2;
+  text-align: center;
+  font-size: x-large;
+  font-variant: small-caps;
+  font-weight: bolder;
+}
+
+mat-card{
+  margin-bottom: 2%;
+}

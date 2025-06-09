@@ -1,0 +1,67 @@
+<!-- Login Form Component -->
+<div class="outer">
+  <div class="main_div">
+      <div class="title">Admin Login</div>
+      <div class="social_icons">
+        <!-- <a href="#"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a> -->
+        <!-- <a href="#"><i class="fab fa-twitter"></i><span>Twitter</span></a> -->
+      </div>
+      
+      <mat-error class="login-failed" *ngIf="loginFailed">Invalid email or password. Please try again.</mat-error>
+
+      <!-- Angular Reactive Form -->
+      <form [formGroup]="credentials" (ngSubmit)="login()">
+        <div class="input_box">
+          <input
+            type="email"
+            placeholder="Email"
+            formControlName="email"
+            required
+          />
+          <div class="icon"><i class="fas fa-user"></i></div>
+          <mat-error *ngIf="credentials.get('email')?.invalid && credentials.get('email')?.touched">Please enter a valid email.</mat-error><br><br>
+        </div>
+        <div class="input_box">
+          <input
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+            required
+          />
+          <div class="icon"><i class="fas fa-lock"></i></div>
+          <mat-error *ngIf="credentials.get('password')?.invalid && credentials.get('password')?.touched">Password must be at least 6 characters.</mat-error><br><br>
+        </div>
+        <div class="option_div">
+          <div class="check_box">
+            <!-- <input type="checkbox" id="check" formControlName="rememberMe" /> -->
+            <!-- <label for="check">Remember me</label> -->
+          </div>
+          <!-- HTML -->
+        <div class="forget_div">
+        <a type="button" (click)="forgotPassword()">Forgot password?</a>
+          </div>
+          
+        </div>
+        <form [formGroup]="aFormGroup" style="margin-left: 20px;">
+          <ngx-recaptcha2 #captchaElem
+          [siteKey] = "siteKey"
+          formControlName="recaptcha">
+        </ngx-recaptcha2>
+        </form>
+
+        <div class="input_box button">
+          <input
+            type="submit"
+            value="Login"
+            [disabled]="!credentials.valid || !aFormGroup.valid"
+          />
+        </div>
+      </form>
+      
+      <!-- <div class="sign_up">
+        Not a member? <a href="#">Signup now</a>
+      </div> -->
+  </div>
+  </div>
+  
+  

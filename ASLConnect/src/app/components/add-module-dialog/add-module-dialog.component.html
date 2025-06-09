@@ -1,0 +1,69 @@
+<h2 mat-dialog-title>Add New Module</h2>
+<mat-dialog-content>
+  <form #moduleForm="ngForm">
+    <h3 mat-dialog-title>Module Description*</h3>
+
+    <mat-form-field>
+      <input matInput placeholder="Module Name" [(ngModel)]="moduleName" name="moduleName" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <textarea matInput placeholder="Module Description" [(ngModel)]="moduleDescription" name="moduleDescription"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Priority" [(ngModel)]="id" name="id" required>
+    </mat-form-field>
+    <hr />
+
+    <!-- Sections -->
+    <h3 mat-dialog-title>Sub-Sections</h3>
+
+    <div *ngFor="let section of sections; let i = index">
+      <mat-form-field>
+        <input matInput placeholder="Section Heading" [(ngModel)]="sections[i].heading" name="heading{{i}}" />
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Section Content" [(ngModel)]="sections[i].content" name="content{{i}}"></textarea>
+      </mat-form-field>
+      <button mat-icon-button color="warn" class="ending" (click)="removeSection(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    <button mat-button (click)="addSection()">Add Section</button>
+    <hr />
+
+    <!-- Resources -->
+    <h3 mat-dialog-title>Additional Resources</h3>
+
+    <div *ngFor="let resource of resources; let i = index" class="dynamic-list-item">
+      <mat-form-field>
+        <input matInput placeholder="Resource Link" [(ngModel)]="resources[i]" name="resource{{i}}" />
+      </mat-form-field>
+      <button mat-icon-button color="warn" class="ending" (click)="removeResource(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    <button mat-button (click)="addResource()">Add Resource</button>
+
+    <hr />
+
+    <!-- Video URL -->
+    <h3 mat-dialog-title>Additional Video</h3>
+
+    <mat-form-field>
+      <input matInput placeholder="Video URL" [(ngModel)]="videoUrl" name="videoUrl" />
+    </mat-form-field>
+
+    <!-- Image URL -->
+    <h3 mat-dialog-title>Additional Image</h3>
+
+    <mat-form-field>
+      <input matInput placeholder="Image URL" [(ngModel)]="imageUrl" name="imageUrl" />
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!moduleName">Submit</button>
+</mat-dialog-actions>

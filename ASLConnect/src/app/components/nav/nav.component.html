@@ -1,0 +1,62 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport *ngIf="(isHandset$ | async)"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a *ngFor="let link of navLinks" mat-list-item [routerLink]="link.path" (click)="drawer.toggle()" class="nav-list-item">
+        <mat-icon class="nav-icon">{{link.icon}}</mat-icon>
+        <span class="nav-label">{{link.label}}</span>
+      </a>
+      <mat-divider></mat-divider>
+
+      <a mat-list-item [routerLink]="'/login'" (click)="drawer.toggle()">
+        <mat-icon>account_circle</mat-icon>
+        <span>Admin</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="fixed-toolbar">
+      <!-- Show the menu icon only for handsets -->
+      <button *ngIf="(isHandset$ | async)" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <!-- Main title -->
+      <img src="../../../assets/logo-removebg-preview.png" alt="ASLConnect Logo" class="logo" /> <!-- Add your logo here -->
+      <span>ASLConnect</span>
+      
+      <!-- Toolbar spacer -->
+      <span class="toolbar-spacer"></span>
+      
+      <ng-container *ngIf="!(isHandset$ | async)">
+        <a mat-button [routerLink]="''">Home</a>
+        <a mat-button [routerLink]="'/modules'">Modules</a>
+
+        <button mat-button [matMenuTriggerFor]="translator" aria-label="Menu for translators">
+          <span class="translator-button">
+            Translator
+            <mat-icon>arrow_drop_down</mat-icon>
+          </span>
+        </button>
+        <mat-menu #translator="matMenu">
+          <button mat-menu-item [routerLink]="'/text-to-asl'">Text-to-ASL</button>
+          <button mat-menu-item [routerLink]="'/asl-to-text'">ASL-to-Text</button>
+        </mat-menu>
+
+        <a mat-button [routerLink]="'/more-resources'">More Resources</a>
+        <a mat-button [routerLink]="'/contact-us'">Contact us</a>
+        <a mat-button [routerLink]="'/login'">
+          <mat-icon>account_circle</mat-icon>
+          Admin
+        </a>
+      </ng-container>
+    </mat-toolbar>
+
+    <!-- Content of the page -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

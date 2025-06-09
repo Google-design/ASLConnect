@@ -1,0 +1,166 @@
+// Background Styling for Full Page Effect
+body {
+  background: linear-gradient(135deg, #c1d3ff, #f8e9ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+
+// Container with Glassmorphism Effect
+.resource-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 30px;
+  max-width: 900px;
+  margin: 20px auto;
+  background: #126cc7;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: fadeInSlide 1s ease forwards;
+}
+
+// Card Styles with Hover Animation
+.resource-item {
+  background: linear-gradient(135deg, #f0f4ff, #e3e9ff);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #d1d9e6;
+  transition: transform 0.4s ease, box-shadow 0.3s ease, background 0.3s ease, opacity 0.3s;
+  opacity: 1;
+  transform: translateX(-20px);
+  animation: slideIn 0.6s ease forwards;
+
+  &:hover {
+    transform: scale(1.05) translateY(-5px);
+    background: linear-gradient(135deg, #d6f0ff, #e3e9ff);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    opacity: 0.9; // Slight fade effect on hover
+  }
+}
+
+
+// Section Title with Accent Border
+.section-title {
+  font-size: 1.6em;
+  color: #dadfe4;
+  margin-bottom: 12px;
+  font-weight: bold;
+  border-left: 6px solid #4b9dfd;
+  padding-left: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+// Resource Name with Hover Glow
+.resource-item strong {
+  font-size: 1.25em;
+  color: #333;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #4b9dfd;
+    text-shadow: 0px 0px 8px rgba(75, 157, 253, 0.7);
+  }
+}
+
+// Description with Stylish Font and Color
+.description {
+  font-size: 1em;
+  color: #606060;
+  margin: 5px 0 15px 0;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+// Link Style with Animated Underline
+.link {
+  display: inline-block;
+  font-size: 0.95em;
+  color: #4b9dfd;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #0056b3;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #0056b3;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// Animations for Slide In and Fade Effects
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// Responsive Adjustments for Smaller Screens
+@media (max-width: 600px) {
+  .resource-container {
+    padding: 15px;
+  }
+
+  .resource-item {
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 1.3em;
+    padding-left: 8px;
+  }
+
+  .resource-item strong {
+    font-size: 1em;
+  }
+
+
+}
+
+

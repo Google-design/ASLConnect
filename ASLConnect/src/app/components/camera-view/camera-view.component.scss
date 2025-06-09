@@ -1,0 +1,58 @@
+.camera-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../../assets/ASL.jpeg'); /* Update the path to where your image is stored */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; // Full viewport height
+    color: white;
+    text-align: center;
+    padding-top: 50px; /* Adds space at the top */
+
+    #heading {
+        font-family: 'Bebas Neue', cursive;
+        color: #ffffff;
+        font-size: 120px;
+        margin-bottom: 50px;
+        // Text shadow for border effect
+        -webkit-text-stroke: 2px black; // For webkit browsers like Chrome and Safari
+        text-shadow:
+          3px 3px 0 #000,  
+          -1px -1px 0 #000,  
+          1px -1px 0 #000,
+          -1px 1px 0 #000,
+          1px 1px 0 #000; // Simulating text stroke for better browser compatibility
+      }
+  
+    video {
+      margin-top: 10px; /* Adjusted to add more space below the header */
+      border: 2px solid white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Adds shadow to the video */
+      border-radius: 10px; /* Rounds the corners of the video */
+    }
+
+    h3 {
+      background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+      padding: 10px;
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow */
+      margin-top: 20px; /* Space between video and text */
+    }
+  
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #003580;
+      }
+    }
+}

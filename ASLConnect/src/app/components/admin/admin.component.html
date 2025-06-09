@@ -1,0 +1,111 @@
+<div class="container">
+    <mat-tab-group dynamicHeight class="custom-tab-group" #tabGroup (selectedTabChange)="onTabChange($event)">
+        <mat-tab label="First">
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">dashboard</mat-icon>
+                <br><span class="tab-label">Modules</span>
+            </ng-template>
+            <div class="tab-content" *ngIf="modules.length > 0; else noModules">
+                <mat-card *ngFor="let module of modules" class="module-card">
+                  <mat-card-header>
+                    <mat-card-title><h3>{{ module.name }}</h3></mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content class="module-card-content">
+                    <p>{{ module.description }}</p>
+
+                    <div *ngFor="let section of module.sections">
+                        <h3>{{ section.heading }}</h3>
+                        <p>{{ section.content }}</p>
+                    </div>
+                
+                    <div *ngIf="module.resources.length > 0">
+                        <h4>Additional Resources:</h4>
+                        <ul>
+                          <li *ngFor="let resource of module.resources">
+                            <a [href]="resource" target="_blank">{{ resource }}</a>
+                          </li>
+                        </ul>
+                    </div>
+
+                    
+                    
+                    <div class="media-container">
+    <div *ngIf="module.videoUrl" class="video-container">
+        <h4>Video</h4>
+        <iframe [src]="formatYTUrl(module.videoUrl) | safeUrl" frameborder="0" class="img-container" allowfullscreen></iframe>
+    </div>
+    
+    <div *ngIf="module.imageUrl" class="image-container">
+        <h4>Image</h4>
+        <img [src]="module.imageUrl" class="img-container"/>
+    </div>
+</div>
+
+
+
+                    <div class="delete-button-container">
+                        <button mat-icon-button color="warn" (click)="deleteModule(module.id); $event.stopPropagation()">
+                            <mat-icon>delete_forever</mat-icon>
+                        </button>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              <ng-template #noModules>
+                <p class="no-notifications">No modules available</p>
+              </ng-template>
+            <button mat-fab class="add-module-btn" (click)="openAddModuleDialog()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-tab>
+
+        <mat-tab label="Second">
+            <ng-template mat-tab-label>
+                <mat-icon *ngIf="!(badgeCount == 0)" aria-hidden="false" [matBadge]="badgeCount" matBadgeColor="accent" matBadgePosition="before" matBadgeOverlap="true" class="example-tab-icon">notifications</mat-icon>
+                <span class="tab-label">Notifications</span>
+            </ng-template>
+
+            <ng-container *ngIf="notifications.length > 0">
+                <mat-accordion multi="true">
+                    <mat-expansion-panel *ngFor="let notification of notifications" class="custom-expansion-panel">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>{{ notification.subject }}</mat-panel-title>
+                            <button mat-icon-button color="warn" (click)="deleteNotification(notification.id); $event.stopPropagation()">
+                                <mat-icon>delete_forever</mat-icon>
+                            </button>
+                        </mat-expansion-panel-header>
+                        <div class="notification-details">
+                            <p><strong>Name:</strong> {{ notification.firstName }} {{ notification.lastName }}</p>
+                            <p><strong>Email:</strong> {{ notification.email }}</p>
+                            <p><strong>Phone:</strong> {{ notification.number }}</p>
+                            <p><strong>Subject:</strong> {{ notification.subject }}</p>
+                            <p><strong>Message:</strong> {{ notification.message }}</p>
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </ng-container>
+
+            <div *ngIf="notifications.length === 0" class="no-notifications">No notifications available</div>
+        </mat-tab>
+
+        <mat-tab label="Third">
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">settings</mat-icon>
+                <br><span class="tab-label">Settings</span>
+            </ng-template>
+            <div class="tab-content logout-content">    
+                <div style="text-align: center;">
+                    <button mat-raised-button color="primary" style="width: 75%;" (click)="logout2()">
+                        Logout
+                    </button>
+                </div>        
+                <!-- Confirmation box displayed when "Logout" is clicked -->
+                <!-- <div class="logout-confirm-box">
+                    <p>Are you sure you want to logout?</p>
+                    <button mat-raised-button color="warn" (click)="logout()">Yes</button>
+                    <button mat-button (click)="cancelLogout()">No</button>
+                </div> -->
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

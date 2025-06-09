@@ -1,0 +1,383 @@
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: left;
+}
+
+.scrollable-content{
+  max-height: 700px; /* Adjust height to fit within 350px tile height */
+  overflow-y: auto;
+  padding-right: 8px; /* Optional: Adds space for scrollbar */
+}
+
+.grid-container {
+  margin: 0; /* Set margin to 0 to remove outside spacing */
+  width: 100%; /* Ensure container fills the width */
+  max-width: none; /* Remove max-width restriction */
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease-in-out infinite;
+  padding: 0; /* Set padding to 0 if you want no space inside the container */
+}
+
+@keyframes gradientAnimation {
+
+  0% { background-position: 0% 50%; }
+
+  50% { background-position: 100% 50%; }
+
+  100% { background-position: 0% 50%; }
+
+}
+
+.dashboard-title {
+
+  font-size: 3rem; /* Increase font size */
+
+  font-weight: bold; /* Make it bold */
+
+  color: #2c3e50; /* Dark color for contrast */
+
+  //margin-bottom: 20px; /* Add space below the title */
+
+  text-align: center; /* Center-align the title */
+
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent; /* Optional: make background transparent to blend with the container */
+  border-radius: 0; /* Remove rounded corners */
+  box-shadow: none; /* Remove shadow for a flat appearance */
+}
+
+
+.more-button {
+
+  position: absolute;
+
+  top: 5px;
+
+  right: 10px;
+
+  background-color: #fff; /* add a white background color */
+
+  border-radius: 50%; /* add a circular border radius */
+
+  padding: 5px;
+
+  cursor: pointer; /* add a pointer cursor */
+
+}
+
+.video-container {
+  max-width: 600px; /* Adjust as needed */
+  margin: auto;
+  display: contents;
+}
+
+.header-text{
+  font-size:xx-large;
+}
+
+.video-frame {
+  width: 100%; /* Make it responsive */
+  height: auto;
+  aspect-ratio: 16/9; /* Maintain aspect ratio */
+}
+
+.main-title {
+  text-align: center;
+  font-size: x-large;
+  // font-variant: small-caps;
+  color:#23527c;
+  font-weight: bolder;
+  // align-self: center;
+  // margin-left: 550px;
+
+}
+
+.dashboard-card-content {
+
+  text-align: left;
+
+  padding: 20px; /* add some padding to the content area */
+
+}
+
+.scrollable-content {
+
+  max-height: 700px; /* Adjust height to fit within 350px tile height */
+
+  overflow-y: auto;
+
+  padding-right: 8px; /* Optional: Adds space for scrollbar */
+
+  background-color: #fff; /* add a white background color */
+
+  border-radius: 10px; /* add a subtle border radius */
+
+}
+
+.mat-grid-list {
+
+  margin: 20px; /* add some margin to the grid list */
+
+}
+
+.mat-grid-tile {
+  background-color: transparent; /* Optional: make background transparent to blend with the grid */
+  border-radius: 0; /* Remove rounded corners for a seamless look */
+  margin: 0; /* Remove spacing between tiles */
+  padding: 0; /* Remove padding inside the tiles, if necessary */
+}
+
+
+.mat-card-header {
+
+  background-color: #333; /* add a dark gray background color */
+
+  color: #fff; /* add a white text color */
+
+  padding: 10px; /* add some padding to the header */
+
+  border-radius: 10px 10px 0 0; /* add a subtle border radius */
+  align-items: center;
+
+}
+
+.mat-card-title {
+
+  font-size: 10px; /* increase the font size of the title */
+
+  font-weight: bold; /* make the title bold */
+
+  align-items: center;
+
+}
+
+.mat-card-content {
+
+  padding: 20px; /* add some padding to the content area */
+
+}
+
+h1 {
+  text-align: center; /* Centers the text */
+  font-size: 3rem; /* Adjust font size if needed */
+  font-weight: bold; /* Make it bold if necessary */
+  color: #2c3e50; /* Ensure good contrast */
+  margin: 0px auto; /* Optional: Add some vertical spacing */
+  padding-top: 15px;
+}
+
+
+h3, h4 {
+
+  font-weight: bold; /* make the h3 heading bold */
+
+  color: #333; /* add a dark gray text color */
+
+  margin-bottom: 10px; /* add some margin to the h3 heading */
+
+}
+
+p {
+
+  margin-bottom: 20px; /* add some margin to the paragraphs */
+
+}
+
+ul {
+
+  list-style: none; /* remove the bullet points */
+
+  padding: 0; /* remove the padding */
+
+  margin: 0; /* remove the margin */
+
+}
+
+li {
+
+  margin-bottom: 10px; /* add some margin to the list items */
+
+}
+
+a {
+
+  text-decoration: none; /* remove the underline */
+
+  // color: #337ab7; /* add a blue text color */
+
+}
+
+a:hover {
+
+  color: #23527c; /* add a darker blue text color on hover */
+
+}
+
+iframe {
+
+  border: none; /* remove the border */
+
+  width: 100%; /* make the iframe full width */
+
+  height: 500px; /* set the height of the iframe */
+
+}
+
+img {
+
+  width: 100%; /* make the image full width */
+
+  height: 50%; /* set the height of the image */
+
+  object-fit: cover; /* make the image cover the entire area */
+
+  border-radius: 10px; /* add a subtle border radius */
+
+}
+
+/* Add some padding to the sections and resources */
+
+.sections, .resources {
+
+  padding: 20px;
+
+}
+
+/* Make the section headings bold */
+
+.sections h3 {
+
+  font-weight: bold;
+
+}
+
+/* Add some margin to the resource list items */
+
+.resources ul li {
+
+  margin-bottom: 10px;
+
+}
+
+/* Make the video and image containers full width */
+
+.video-container, .image-container {
+
+  width: 100%;
+
+}
+
+/* Add some padding to the video and image containers */
+
+.video-container, .image-container {
+
+  padding: 20px;
+
+}
+
+/* Make the video and image titles bold */
+
+.video-title, .image-title {
+
+  font-weight: bold;
+
+}
+
+/* Add some margin to the video and image titles */
+
+.video-title, .image-title {
+
+  margin-bottom: 10px;
+
+}
+
+
+h1, h2, h3, h4{
+  color: #1976d2;
+}
+
+
+p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6; /* Better readability */
+  text-align: justify;
+}
+
+.link {
+  display: inline-block;
+  font-size: 0.95em;
+  color: #4b9dfd;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #0056b3;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #0056b3;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.video-container,
+.image-container {
+  display: inline-block;
+  width: 50%; /* Set each container to take up 50% of the width */
+  padding: 20px; /* Add some padding for spacing */
+}
+
+.side-by-side-container {
+  display: flex; /* Use flexbox to align containers side by side */
+  flex-wrap: wrap; /* Ensure responsiveness for smaller screens */
+  justify-content: space-between; /* Add spacing between containers */
+  align-items: center; /* Center-align items vertically */
+}
+
+.video-container .video-frame,
+.image-container img {
+  width: 100%; /* Make video and image fill the container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Add smooth corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+}

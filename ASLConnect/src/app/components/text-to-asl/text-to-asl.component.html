@@ -1,0 +1,41 @@
+<div class="container">
+    <h2 class="title">Text to ASL Converter</h2>
+  
+    <!-- Two-column grid: Input and Output -->
+    <mat-grid-list [cols]="cols" rowHeight="1:1" class="equal-height-grid">
+      <!-- Input Section -->
+      <mat-grid-tile>
+        <div class="input-section">
+          <!-- Large Input Text Area -->
+          <mat-form-field class="input-field" appearance="fill">
+            <mat-label>Enter text here</mat-label>
+            <textarea style="height: 50vh;" matInput [(ngModel)]="textInput" rows="6" placeholder="Type your text"></textarea>
+                <!-- <mat-chip-option (click)="chipChange()">{{ isChipSelected ? 'Hide Letters' : 'Show Letters' }}</mat-chip-option> -->
+                <!-- <button mat-raised-button color="primary" (click)="onSubmit()">Generate ASL Images</button> -->
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+  
+      <!-- Output Section (grayed out initially) -->
+      <mat-grid-tile>
+        <div class="asl-output" [ngClass]="{ 'grayed-out': !(aslImages$ | async)?.length }">
+          <!-- ASL images display -->
+          <mat-card appearance="outlined" *ngIf="aslImages$ | async as aslImages">
+            <ng-container *ngFor="let imgUrl of aslImages; let i = index">
+              <div class="asl-image-wrapper">
+                <img mat-card-image [src]="imgUrl" alt="ASL character" />
+                <mat-card-footer *ngIf="isChipSelected">
+                  {{ characters[i] }}
+                </mat-card-footer>
+              </div>
+            </ng-container>
+          </mat-card>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-chip-option (click)="chipChange()">{{ isChipSelected ? 'Hide Letters' : 'Show Letters' }}</mat-chip-option>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Generate ASL Images</button>
+
+  </div>
+  

@@ -1,0 +1,32 @@
+mat-card-title{
+  text-align: center;
+  font-weight: 500;
+  font-variant: small-caps;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.contact-card {
+  min-width: 120px;
+  height: calc(100vh - 64px);
+}
+
+// .mat-radio-button {
+// }
+
+.submit-button{
+  font-size: medium;
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+.submitMessage{
+  height: max-content;
+  color: rgb(31, 10, 101);
+  font-weight: 500;
+  font-variant: small-caps;
+  text-align: center;
+}

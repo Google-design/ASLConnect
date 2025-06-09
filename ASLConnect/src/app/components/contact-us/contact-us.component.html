@@ -1,0 +1,84 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit(addressForm.value)" *ngIf="!isSubmit">
+  <mat-card class="contact-card">
+    <mat-card-header>
+      <mat-card-title>Contact Us</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="First name" formControlName="firstName">
+            <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+              First name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last name" formControlName="lastName">
+            <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+              Last name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Email*</mat-label>
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="addressForm.controls['email'].hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Phone Number*</mat-label>
+            <input matInput placeholder="Phone Number" type="number" minlength="10" formControlName="number">
+            <mat-error *ngIf="addressForm.controls['number'].hasError('required')">
+              Phone number is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="addressForm.controls['number'].touched && addressForm.controls['number'].errors?.['minlength']">
+              Phone number must be at least <strong>10 digits</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Subject</mat-label>
+            <input matInput placeholder="Subject" type="text" formControlName="subject">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Message</mat-label>
+            <textarea matInput placeholder="Message" formControlName="message"></textarea>
+            <mat-error *ngIf="addressForm.controls['message'].hasError('required')">
+              Message is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+<mat-card appearance="outlined" *ngIf="isSubmit">
+  <mat-card-content>
+    <h2 class="submitMessage">{{ submitMessage }}</h2>
+  </mat-card-content>
+</mat-card>

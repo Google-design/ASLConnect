@@ -1,0 +1,357 @@
+/* Variables */
+$primary-color: #126cc7;
+$secondary-color: #126cc7;
+$background-color: #ffffff;
+$text-color: #333;
+$font-family: Arial, sans-serif;
+
+/* Background Animation */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  font-family: $font-family;
+  line-height: 1.6;
+  color: $text-color;
+  margin: 0;
+  min-height: 100vh; /* Ensures the body covers the entire viewport height */
+  background: linear-gradient(135deg, #ff9a9e, rgb(160, 228, 255), rgb(160, 228, 255), #fbc2eb, #a1c4fd, #c2e9fb);
+  background-size: 300% 300%;
+  animation: gradientAnimation 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  // max-width: 1200px;
+  width: 100%;
+  // padding: 20px;
+  // background: rgba(255, 255, 255, 0.9); /* Optional background for content readability */
+  border-radius: 0px; /* Optional rounded corners for content */
+}
+
+/* Center alignment for sections */
+.about, .testimonials, .team, .contact {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Header Styles */
+.header {
+  background: $primary-color;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  li {
+    margin-right: 20px;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    &:hover {
+      color: #ccc;
+    }
+  }
+}
+
+/* Hero Section Styles */
+.hero {
+  background: rgba(255, 255, 255, 0.9); /* Optional background for readability */
+  padding: 50px 20px;
+  background: url(../../../assets/DALLE2_1.PNG) center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  text-align: center;
+  border-radius: 0px; /* Optional rounded corners */
+  h1 {
+    font-size: 3rem;
+    line-height: 105%;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    font-variant: small-caps;
+    background: radial-gradient(#fff, #bcfdfe78);
+    margin-bottom: 30px;
+    max-width: 600px;
+  }
+}
+
+.cta-button {
+  background: $secondary-color;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  &:hover {
+    background: darken($secondary-color, 10%);
+    transform: translateY(-3px);
+  }
+}
+
+/* About, Testimonials, Team, Contact Sections */
+.about, .testimonials, .team, .contact {
+  padding: 40px 20px;
+  text-align: center;
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+}
+
+/* Footer */
+.footer {
+  background: $primary-color;
+  padding: 10px 0;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  p {
+    margin: 0;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+  .header {
+    flex-direction: column;
+  }
+  .nav {
+    ul {
+      flex-direction: column;
+    }
+    li {
+      margin-right: 0;
+    }
+  }
+  .hero {
+    padding: 30px 15px;
+  }
+  .about, .testimonials, .team, .contact {
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+  .header {
+    padding: 10px;
+  }
+  .nav {
+    ul {
+      flex-direction: column;
+    }
+    li {
+      margin-right: 0;
+    }
+  }
+  .hero {
+    padding: 20px 10px;
+  }
+  .about, .testimonials, .team, .contact {
+    padding: 10px 5px;
+  }
+}
+
+.translators {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(240, 240, 255, 0.9);
+  border-radius: 0px;
+  margin: 0;
+
+  h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+  }
+
+  .translator-container {
+      display: flex;
+      justify-content: space-between; /* Places the two translators side by side */
+      align-items: center; /* Vertically aligns the items */
+      flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+      gap: 20px; /* Adds space between translators */
+  }
+
+  .translator {
+      flex: 1; /* Ensures both translators take up equal width */
+      max-width: 45%; /* Prevents them from stretching too wide */
+      background: rgba(207, 206, 253, 0.9); /* Optional white background */
+      padding: 20px;
+      border-radius: 0px; /* Optional rounded corners */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better look */
+
+      h3 {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+      }
+
+      p {
+          font-size: 1rem;
+          margin-bottom: 20px;
+      }
+  }
+}
+
+
+.features {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(240, 240, 255, 0.9);
+  border-radius: 0px;
+  // margin: 20px 0;
+  .feature-list {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      div {
+          max-width: 300px;
+          margin: 10px;
+          h3 {
+              font-size: 1.5rem;
+              margin-bottom: 10px;
+          }
+          p {
+              font-size: 1rem;
+          }
+      }
+  }
+}
+
+.faqs {
+  text-align: left;
+  padding: 40px 20px;
+  h2 {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  div {
+      margin-bottom: 20px;
+      h3 {
+          font-size: 1.3rem;
+          margin-bottom: 5px;
+      }
+      p {
+          font-size: 1rem;
+          margin-left: 20px;
+      }
+  }
+}
+
+
+.nav {
+  display: flex;
+  justify-content: space-between; /* Ensures the logo stays on the left and links are spaced on the right */
+  align-items: center; /* Vertically aligns items in the middle */
+}
+
+.nav ul {
+  display: flex; /* Makes the list items flex items */
+  margin-left: auto; /* Pushes the links to the far right */
+  list-style: none; /* Removes bullet points */
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin-left: 20px; /* Adds space between the links */
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px; /* Adds padding around the links */
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #ccc;
+}
+
+
+.translators{
+  display: inline-block;
+  width: 100%;
+}
+
+a{
+  color: lightblue;
+}
+
+a:hover{
+  color: darkblue;
+}
+
+.hero {
+  position: relative; /* Ensures the pseudo-element is positioned relative to the .hero section */
+  background: url(../../../assets/DALLE2_1.PNG);
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centers the content vertically */
+  text-align: center;
+  color: #fff;
+  border-radius: 0px; /* Optional rounded corners */
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Creates the light black overlay */
+  z-index: 1; /* Places the overlay behind the content but above the background */
+}
+
+.hero h1, .hero p, .cta-button {
+  position: relative; /* Ensures content appears above the overlay */
+  z-index: 2;
+}

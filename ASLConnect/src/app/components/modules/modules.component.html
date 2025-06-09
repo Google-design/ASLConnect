@@ -1,0 +1,47 @@
+<div class="grid-container">
+  <h1 class="header-text">ASL Learning Modules</h1>
+
+  <!-- Using Angular Material Grid List -->
+  <mat-grid-list cols="2" rowHeight="750px">
+    <!-- Corrected Angular for loop syntax -->
+    <mat-grid-tile *ngFor="let card of cards | async; trackBy: trackCard" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header></mat-card-header>
+        <mat-card-content class="dashboard-card-content scrollable-content">
+          <mat-card-title class="main-title">
+            {{ card.title }}
+          </mat-card-title>
+          <div>{{ card.content }}</div>
+
+          <!-- Sections -->
+          <div *ngFor="let section of card.sections">
+            <h3>{{ section.heading }}</h3>
+            <p>{{ section.content }}</p>
+          </div>
+
+          <!-- Resources -->
+          <div *ngIf="card.resources && card.resources.length > 0">
+            <h4>Additional Resources:</h4>
+            <ul>
+              <li *ngFor="let resource of card.resources">
+                <a [href]="resource" target="_blank">{{ resource }}</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Video URL -->
+          <div *ngIf="card.videoUrl" class="video-container">
+            <!-- <iframe [src]="card.videoUrl | safeUrl" frameborder="0" allowfullscreen></iframe> -->
+            <!-- Adjusted iframe size -->
+            <iframe [src]="card.videoUrl | safeUrl" class="video-frame" width="100%" height="50%" frameborder="0" allowfullscreen></iframe>
+          </div>
+
+          <!-- Image -->
+          <div *ngIf="card.imageUrl" class="image-container">
+            <img [src]="card.imageUrl | safeUrl"/>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
